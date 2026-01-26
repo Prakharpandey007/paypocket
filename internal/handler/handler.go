@@ -1,9 +1,15 @@
 package handler
 
+import (
+	"github.com/Prakharpandey007/paypocket/internal/service"
+)
+
 type Container struct {
-	// Add your handlers here as you create them
+	UserHandler *UserHandler
 }
 
-func NewContainer() *Container {
-	return &Container{}
+func NewContainer(userService service.UserService) *Container {
+	return &Container{
+		UserHandler: NewUserHandler(userService),
+	}
 }
